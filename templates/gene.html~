@@ -1,6 +1,10 @@
-$def with (form)
+$def with (form,form2)   
 
 <form name="main" method="post">
-$if not form.valid: <p class="error"> <br>Something is wrong! </br></p>
-$form.render()
-<input type="submit" /> </form>
+$if not form.valid: <p class="error"> <br>Something is wrong! </br> </p> 
+$:form.render()  
+<input type="submit" /> </form>  
+  
+<form2>
+<input type="button" value="HEEELP" onClick="window.location.href='http://bedanno.cremag.org/static/AnnoGene-Manual.pdf'">
+</form2>  

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<application xmlns="http://wadl.dev.java.net/2009/02"
+   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+   xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+   xmlns:bedform ="http://webservices.com/AnnoGene"
+   xsi:schemaLocation="http://wadl.dev.java.net/2009/02 wadl.xsd">
+   <grammars/>
+   <resources base="http://bedanno.cremag.org">
+      <resource path="/">
+          <method name="POST" id="GenomicData">
+              <request>
+                  <param name="Data" style="query" type="bedform:GenomicPositions" required="true"/>
+                  <param name="Accuracy" style="query" type="xsd:integer" required="true" default="0"/>
+                  <param name="Genome" style="query" type="bedform:GenomeAssembly" required="true" default="mm9"/>
+                      <option value="mm9"/>
+                      <option value="mm10"/>
+                      <option value="hg19"/>
+              </request>
+              <response>
+                 <representation mediaType="text/tab-separated-values" element="bedform:GeneSearchResult"/>
+              </response> 
+          </method>
+      </resource>
+   </resources>
+</application>
